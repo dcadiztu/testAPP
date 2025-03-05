@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .tema { font-size: 1.2em; font-weight: bold; margin-top: 20px; }
+        .question { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9; }
+        .options button { display: block; margin: 5px 0; padding: 10px; width: 30%; cursor: pointer; }
+        .correct { background-color: lightgreen; }
+        .incorrect { background-color: lightcoral; }
+        .highlight-correct { background-color: orange; }
+        #resultado { font-weight: bold; margin-top: 20px; }
+        #error { color: red; font-weight: bold; }
+        #reset { margin-top: 20px; padding: 10px; cursor: pointer; background-color: #007BFF; color: white; border: none; }
+        #tema-selector { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Cuestionario</h2>
+    <label for="tema-selector">Selecciona un tema:</label>
+    <select id="tema-selector"></select>
+    <div id="quiz"></div>
+    <button id="reset">Reset</button>
+    <p id="resultado"></p>
+    <p id="error"></p>
+    <script>
+        let quizData = [];
+        let totalPreguntas = 0;
+        let respuestasCorrectas = 0;
+        let respuestasIncorrectas = 0;
+        
+        async function cargarPreguntas() {
+            try {
+                const response = await fetch('preguntas.json');
+                if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+                
+                quizData = await response.json();
+                
+                if (!Array.isArray(quizData)) {
+                    throw new Error("Formato incorrecto en el JSON");
+                }
+                
+                const temaSelector = document.getElementById("tema-selector");
+                temaSelector.innerHTML = "";
+                quizData.forEach((tema, index) => {
+                    const option = document.createElement("option");
+                    option.value = index;
+                    option.textContent = tema.tema;
+                    temaSelector.appendChild(option);
+                });
+                
+                mostrarPreguntas(0);
+            } catch (error) {
+                document.getElementById("error").textContent = `Error cargando las preguntas: ${error.message}`;
+                console.error(error);
+            }
+        }
+
+        function mostrarPreguntas(indiceTema) {
+            const quizContainer = document.getElementById("quiz");
+            const resultado = document.getElementById("resultado");
+            totalPreguntas = 0;
+            respuestasCorrectas = 0;
+            respuestasIncorrectas = 0;
+            
+            quizContainer.innerHTML = "";
+            const tema = quizData[indiceTema];
+            
+            const temaDiv = document.createElement("div");
+            temaDiv.classList.add("tema");
+            temaDiv.textContent = tema.tema;
+            quizContainer.appendChild(temaDiv);
+            
+            totalPreguntas = tema.preguntas.length;
+            
+            tema.preguntas.forEach((pregunta, index) => {
+                const questionDiv = document.createElement("div");
+                questionDiv.classList.add("question");
+                questionDiv.innerHTML = `<p><strong>${index + 1}. ${pregunta.pregunta}</strong></p>`;
+                
+                const optionsDiv = document.createElement("div");
+                optionsDiv.classList.add("options");
+                
+                for (const [key, value] of Object.entries(pregunta.opciones)) {
+                    const button = document.createElement("button");
+                    button.textContent = `${key}: ${value}`;
+                    button.onclick = function () {
+                        optionsDiv.querySelectorAll("button").forEach(btn => btn.disabled = true);
+                        if (key === pregunta.respuesta_correcta) {
+                            button.classList.add("correct");
+                            respuestasCorrectas++;
+                        } else {
+                            button.classList.add("incorrect");
+                            respuestasIncorrectas++;
+                            const correctButton = [...optionsDiv.children].find(btn => btn.textContent.startsWith(pregunta.respuesta_correcta));
+                            if (correctButton) correctButton.classList.add("highlight-correct");
+                        }
+                        actualizarResultados();
+                    };
+                    optionsDiv.appendChild(button);
+                }
+                
+                questionDiv.appendChild(optionsDiv);
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function actualizarResultados() {
+            let puntos = respuestasCorrectas - (respuestasIncorrectas * 0.33);
+            document.getElementById("resultado").textContent = `Preguntas Totales: ${totalPreguntas} | Respondidas OK: ${respuestasCorrectas} | Respondidas KO: ${respuestasIncorrectas} | Puntos: ${puntos.toFixed(2)}`;
+        }
+        
+        document.getElementById("tema-selector").addEventListener("change", (event) => {
+            mostrarPreguntas(event.target.value);
+        });
+        
+        document.getElementById("reset").addEventListener("click", () => {
+            document.getElementById("resultado").textContent = "";
+            mostrarPreguntas(document.getElementById("tema-selector").value);
+        });
+        
+        cargarPreguntas();
+    </script>
+</body>
+</html>

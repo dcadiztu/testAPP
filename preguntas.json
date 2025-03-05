@@ -1,0 +1,218 @@
+[{
+  "tema": "Active Directory",
+  "preguntas": [
+    {
+      "pregunta": "¿Cuál es la función principal de Active Directory en Windows?",
+      "opciones": {
+        "A": "Gestionar bases de datos SQL en la red.",
+        "B": "Controlar y administrar recursos de red, usuarios y políticas de seguridad.",
+        "C": "Optimizar la velocidad de conexión a Internet.",
+        "D": "Crear copias de seguridad de archivos en la nube."
+      },
+      "respuesta_correcta": "B"
+    },
+    {
+      "pregunta": "¿Cuál de los siguientes NO es un componente de Active Directory?",
+      "opciones": {
+        "A": "Dominios",
+        "B": "Árboles",
+        "C": "Tablas de enrutamiento",
+        "D": "Bosques"
+      },
+      "respuesta_correcta": "C"
+    },
+    {
+      "pregunta": "¿Cómo se llama el servicio central que gestiona Active Directory en Windows Server?",
+      "opciones": {
+        "A": "DNS Server",
+        "B": "DHCP Server",
+        "C": "Active Directory Domain Services (AD DS)",
+        "D": "Windows Update Services"
+      },
+      "respuesta_correcta": "C"
+    },
+    {
+      "pregunta": "¿Qué herramienta se usa para administrar Active Directory en un servidor Windows?",
+      "opciones": {
+        "A": "Task Manager",
+        "B": "Active Directory Users and Computers (ADUC)",
+        "C": "Control Panel",
+        "D": "Registry Editor"
+      },
+      "respuesta_correcta": "B"
+    },
+    {
+      "pregunta": "¿Cuál de los siguientes roles es responsable de autenticar usuarios en Active Directory?",
+      "opciones": {
+        "A": "Servidor DHCP",
+        "B": "Servidor de archivos",
+        "C": "Controlador de dominio (Domain Controller)",
+        "D": "Servidor proxy"
+      },
+      "respuesta_correcta": "C"
+    }
+  ]
+},
+{
+  "tema": "Active Directory - RDS",
+  "preguntas": [
+    {
+      "pregunta": "¿Cuál es la función principal de RD Session Host en RDS?",
+      "opciones": {
+        "A": "Alojar sesiones de usuario en un servidor compartido.",
+        "B": "Permitir acceso remoto a través del navegador.",
+        "C": "Administrar la distribución de licencias RDS.",
+        "D": "Controlar el tráfico de red en conexiones remotas."
+      },
+      "respuesta_correcta": "A"
+    },
+    {
+      "pregunta": "¿Qué servicio de RDS permite el acceso a sesiones de usuario a través de un navegador web?",
+      "opciones": {
+        "A": "RD Session Host",
+        "B": "RD Web Access",
+        "C": "RD Connection Broker",
+        "D": "RD Virtualization Host"
+      },
+      "respuesta_correcta": "B"
+    },
+    {
+      "pregunta": "¿Cuál es el propósito de RD Licensing en una infraestructura de RDS?",
+      "opciones": {
+        "A": "Administrar sesiones activas de usuario.",
+        "B": "Proporcionar seguridad en conexiones RDS.",
+        "C": "Gestionar y distribuir licencias de acceso.",
+        "D": "Optimizar el uso de CPU en el servidor."
+      },
+      "respuesta_correcta": "C"
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes funciones ayuda a equilibrar la carga entre varios servidores RD Session Host?",
+      "opciones": {
+        "A": "RD Web Access",
+        "B": "RD Licensing",
+        "C": "RD Connection Broker",
+        "D": "RD Virtualization Host"
+      },
+      "respuesta_correcta": "C"
+    },
+    {
+      "pregunta": "¿Qué protocolo utiliza RDS para las conexiones remotas?",
+      "opciones": {
+        "A": "SSH",
+        "B": "RDP",
+        "C": "HTTP",
+        "D": "Telnet"
+      },
+      "respuesta_correcta": "B"
+    },
+    {
+      "pregunta": "¿Qué componente de RDS permite a los usuarios acceder a escritorios virtualizados en Hyper-V?",
+      "opciones": {
+        "A": "RD Virtualization Host",
+        "B": "RD Web Access",
+        "C": "RD Connection Broker",
+        "D": "RD Session Host"
+      },
+      "respuesta_correcta": "A"
+    },
+    {
+      "pregunta": "¿Qué tipo de licencias pueden usarse en RD Licensing?",
+      "opciones": {
+        "A": "Por usuario y por dispositivo.",
+        "B": "Por sesión y por instancia.",
+        "C": "Por dominio y por red.",
+        "D": "Por grupo y por máquina."
+      },
+      "respuesta_correcta": "A"
+    },
+    {
+      "pregunta": "¿Qué herramienta se usa para configurar y activar un servidor de licencias RDS?",
+      "opciones": {
+        "A": "Administrador de Licencias de Escritorio Remoto",
+        "B": "Editor de Directivas de Grupo",
+        "C": "Administrador del Servidor",
+        "D": "Hyper-V Manager"
+      },
+      "respuesta_correcta": "A"
+    },
+    {
+      "pregunta": "¿Cuál es el período de gracia antes de que un servidor RD Session Host requiera licencias?",
+      "opciones": {
+        "A": "60 días",
+        "B": "90 días",
+        "C": "120 días",
+        "D": "30 días"
+      },
+      "respuesta_correcta": "C"
+    },
+    {
+      "pregunta": "¿Dónde se configuran los servidores de licencias en un RD Session Host?",
+      "opciones": {
+        "A": "Editor de Directivas de Grupo (GPO)",
+        "B": "Administrador de Hyper-V",
+        "C": "PowerShell",
+        "D": "Administrador de Dispositivos"
+      },
+      "respuesta_correcta": "A"
+    }
+  ]
+},
+{
+    "tema": "Examen CARM 2024",
+    "preguntas": [
+        {
+            "pregunta": "Según el Tratado de la Unión Europea, NO es una institución Europea:",
+            "opciones": {
+                "A": "La Comisión Europea.",
+                "B": "El Consejo.",
+                "C": "El Banco Central Europeo.",
+                "D": "El Comité de las Regiones."
+            },
+            "respuesta_correcta": "D"
+        },
+        {
+            "pregunta": "Según el art. 13, de la Ley 7/2004, de 28 de diciembre, de organización y régimen jurídico de la Administración Pública de la CARM, NO es un órgano directivo de una Consejería:",
+            "opciones": {
+                "A": "La Secretaría General.",
+                "B": "Las direcciones generales.",
+                "C": "Las subdirecciones generales, en su caso.",
+                "D": "La Vicesecretaría."
+            },
+            "respuesta_correcta": "C"
+        },
+        {
+            "pregunta": "Según el art. 23 del Real Decreto Legislativo 5/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto Básico del Empleado Público, las retribuciones estarán integradas única y exclusivamente por:",
+            "opciones": {
+                "A": "El sueldo y los trienios.",
+                "B": "El sueldo, los trienios y las pagas extraordinarias.",
+                "C": "El sueldo, los trienios, las pagas extraordinarias, la carrera profesional y el desempeño.",
+                "D": "El sueldo, los trienios, el complemento de destino y las pagas extraordinarias."
+            },
+            "respuesta_correcta": "A"
+        },
+        {
+            "pregunta": "Según el art. 48 del Decreto Legislativo 1/1999, de 2 de diciembre, por el que se aprueba el Texto Refundido de la Ley de Hacienda de la Región de Murcia, cuál de las siguientes NO es una fase del procedimiento de gestión de los créditos:",
+            "opciones": {
+                "A": "La ordenación del pago.",
+                "B": "El compromiso del gasto.",
+                "C": "La comprobación del pago.",
+                "D": "El pago material."
+            },
+            "respuesta_correcta": "C"
+        },
+        {
+            "pregunta": "Según el art. 3 de la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, cada una de las Administraciones Públicas actúa para el cumplimiento de sus fines con:",
+            "opciones": {
+                "A": "Personalidad jurídica pública.",
+                "B": "Personalidad jurídica única.",
+                "C": "Personalidad jurídica plena.",
+                "D": "Personalidad jurídica privada."
+            },
+            "respuesta_correcta": "B"
+        }
+    ]
+}
+
+
+]
